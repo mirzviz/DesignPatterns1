@@ -10,15 +10,16 @@ namespace DesignPatterns1
 {
     public class AppSettings
     {
-        public Point LastWindowLocation{ get; set; }
-        public Size LastWindowSize { get; set; }
-        public bool RememberUser{ get; set; }
-        public string LastAccessToke{ get; set; }
 
-
+        public AppSettings()
+        {
+            initialize();
+        }
+       
         public void SaveToFile()
         {
-            using (Stream stream = new FileStream(@"C:\Users\user\Documents\Visual Studio 2015\Projects\DesignPatterns1\appSettings.xml", FileMode.Truncate))
+            File.Delete(@"C:\Users\user\Documents\Visual Studio 2015\Projects\DesignPatterns1\appSettings.xml");
+            using (Stream stream = new FileStream(@"C:\Users\user\Documents\Visual Studio 2015\Projects\DesignPatterns1\appSettings.xml", FileMode.Create))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
                 serializer.Serialize(stream, this);
@@ -37,11 +38,28 @@ namespace DesignPatterns1
                     appSettings = obj as AppSettings;
                 }
             }
+            else
+            {
+                appSettings = new AppSettings();
+                appSettings.initialize();
+            }
 
             return appSettings;
         }
 
-        
+        public Point m_LastWindowLocation { get; set; }
+        public Size m_LastWindowSize { get; set; }
+        public bool m_RememberUser { get; set; }
+        public string m_LastAccessToke { get; set; }
+
+         
+        private void initialize()
+        {
+            m_LastWindowLocation = new Point(100, 100);
+            m_LastWindowSize = new Size(600, 1000);
+            m_RememberUser = false;
+            m_LastAccessToke = String.Empty;
+        }
     }
 
 }
