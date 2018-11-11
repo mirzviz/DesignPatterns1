@@ -21,7 +21,6 @@ namespace DesignPatterns1
         {
             InitializeComponent();
             m_AppSettings = AppSettings.LoadFromFile();
-
             this.Size = m_AppSettings.m_LastWindowSize;
             this.Location = m_AppSettings.m_LastWindowLocation;
             checkBoxRememberUser.Checked = m_AppSettings.m_RememberUser;

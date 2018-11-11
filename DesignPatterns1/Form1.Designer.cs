@@ -115,6 +115,7 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.connectButton);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
