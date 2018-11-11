@@ -60,14 +60,14 @@
             // listBoxFriends
             // 
             this.listBoxFriends.FormattingEnabled = true;
-            this.listBoxFriends.Location = new System.Drawing.Point(294, 79);
+            this.listBoxFriends.Location = new System.Drawing.Point(165, 79);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(120, 95);
             this.listBoxFriends.TabIndex = 2;
             // 
             // buttonFetchFriends
             // 
-            this.buttonFetchFriends.Location = new System.Drawing.Point(294, 25);
+            this.buttonFetchFriends.Location = new System.Drawing.Point(165, 25);
             this.buttonFetchFriends.Name = "buttonFetchFriends";
             this.buttonFetchFriends.Size = new System.Drawing.Size(120, 23);
             this.buttonFetchFriends.TabIndex = 3;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 322);
+            this.ClientSize = new System.Drawing.Size(552, 323);
             this.Controls.Add(this.checkBoxRememberUser);
             this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.buttonPostStatus);
@@ -117,6 +117,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

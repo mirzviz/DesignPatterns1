@@ -13,7 +13,7 @@ using FacebookWrapper.ObjectModel;
 namespace DesignPatterns1
 {
     public partial class Form1 : Form
-    {
+    { 
         private User m_LoggedInUser;
         private LoginResult m_LoginResult;
         private AppSettings m_AppSettings;
@@ -170,8 +170,16 @@ namespace DesignPatterns1
             m_AppSettings.SaveToFile();
         }
 
+        public void FindWomen()
+        {
+            WomenFriendFinder WFF = new WomenFriendFinder();
+            WFF.Me = m_LoggedInUser;
+            List<User> FemaleFriends = WFF.GetFemaleFriends();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-        
+        }
     }
 }
