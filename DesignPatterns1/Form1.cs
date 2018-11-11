@@ -14,7 +14,8 @@ namespace DesignPatterns1
 {
     public partial class Form1 : Form
     {
-        private LoginResult m_LoggedInUser;
+        private User m_LoggedInUser;
+        private LoginResult m_LoginResult;
         private AppSettings m_AppSettings;
 
         public Form1()
@@ -30,6 +31,7 @@ namespace DesignPatterns1
         private void loginAndInit()
         {
             LoginResult result;
+
             if (string.IsNullOrEmpty(m_AppSettings.m_LastAccessToke) || !m_AppSettings.m_RememberUser)
             {
                 /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
@@ -88,7 +90,8 @@ namespace DesignPatterns1
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
-                m_LoggedInUser = result;
+                m_LoginResult = result;
+                m_LoggedInUser = result.LoggedInUser;
                 fetchUsersPhoto();
             }
             else
@@ -99,7 +102,7 @@ namespace DesignPatterns1
 
         private void fetchUsersPhoto()
         {
-            pictureBox.LoadAsync(m_LoggedInUser.LoggedInUser.PictureNormalURL);
+            pictureBox.LoadAsync(m_LoggedInUser.PictureNormalURL);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,13 +134,13 @@ namespace DesignPatterns1
         {
             listBoxFriends.Items.Clear();
             listBoxFriends.DisplayMember = "Name";
-            foreach (User friend in m_LoggedInUser.LoggedInUser.Friends)
+            foreach (User friend in m_LoggedInUser.Friends)
             {
                 listBoxFriends.Items.Add(friend);
                 friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
             }
 
-            if (m_LoggedInUser.LoggedInUser.Friends.Count == 0)
+            if (m_LoggedInUser.Friends.Count == 0)
             {
                 MessageBox.Show("No Friends to retrieve :(");
             }
@@ -145,7 +148,7 @@ namespace DesignPatterns1
 
         private void buttonPostStatus_Click(object sender, EventArgs e)
         {
-            Status postedStatus = m_LoggedInUser.LoggedInUser.PostStatus(textBoxStatus.Text);
+            Status postedStatus = m_LoggedInUser.PostStatus(textBoxStatus.Text);
             MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
         }
 
@@ -157,7 +160,7 @@ namespace DesignPatterns1
             m_AppSettings.m_RememberUser = checkBoxRememberUser.Checked;
             if(checkBoxRememberUser.Checked)
             {
-                m_AppSettings.m_LastAccessToke = m_LoggedInUser.AccessToken;
+                m_AppSettings.m_LastAccessToke = m_LoginResult.AccessToken;
             }
             else
             {
