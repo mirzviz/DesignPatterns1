@@ -35,6 +35,8 @@
             this.buttonPostStatus = new System.Windows.Forms.Button();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.checkBoxRememberUser = new System.Windows.Forms.CheckBox();
+            this.buttonAdvancedFriendSearch = new System.Windows.Forms.Button();
+            this.buttonDisconnect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +44,7 @@
             // 
             this.connectButton.Location = new System.Drawing.Point(31, 25);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(100, 23);
+            this.connectButton.Size = new System.Drawing.Size(69, 23);
             this.connectButton.TabIndex = 0;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
@@ -60,14 +62,14 @@
             // listBoxFriends
             // 
             this.listBoxFriends.FormattingEnabled = true;
-            this.listBoxFriends.Location = new System.Drawing.Point(165, 79);
+            this.listBoxFriends.Location = new System.Drawing.Point(279, 79);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(120, 95);
             this.listBoxFriends.TabIndex = 2;
             // 
             // buttonFetchFriends
             // 
-            this.buttonFetchFriends.Location = new System.Drawing.Point(165, 25);
+            this.buttonFetchFriends.Location = new System.Drawing.Point(279, 25);
             this.buttonFetchFriends.Name = "buttonFetchFriends";
             this.buttonFetchFriends.Size = new System.Drawing.Size(120, 23);
             this.buttonFetchFriends.TabIndex = 3;
@@ -102,11 +104,33 @@
             this.checkBoxRememberUser.Text = "Remember User";
             this.checkBoxRememberUser.UseVisualStyleBackColor = true;
             // 
+            // buttonAdvancedFriendSearch
+            // 
+            this.buttonAdvancedFriendSearch.Location = new System.Drawing.Point(423, 25);
+            this.buttonAdvancedFriendSearch.Name = "buttonAdvancedFriendSearch";
+            this.buttonAdvancedFriendSearch.Size = new System.Drawing.Size(220, 23);
+            this.buttonAdvancedFriendSearch.TabIndex = 7;
+            this.buttonAdvancedFriendSearch.Text = "Perform Advanced Friend Search";
+            this.buttonAdvancedFriendSearch.UseVisualStyleBackColor = true;
+            this.buttonAdvancedFriendSearch.Click += new System.EventHandler(this.buttonAdvancedFriendSearch_Click);
+            // 
+            // buttonDisconnect
+            // 
+            this.buttonDisconnect.Location = new System.Drawing.Point(106, 25);
+            this.buttonDisconnect.Name = "buttonDisconnect";
+            this.buttonDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonDisconnect.TabIndex = 8;
+            this.buttonDisconnect.Text = "Disconnect";
+            this.buttonDisconnect.UseVisualStyleBackColor = true;
+            this.buttonDisconnect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDisconnect_MouseClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 323);
+            this.ClientSize = new System.Drawing.Size(651, 378);
+            this.Controls.Add(this.buttonDisconnect);
+            this.Controls.Add(this.buttonAdvancedFriendSearch);
             this.Controls.Add(this.checkBoxRememberUser);
             this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.buttonPostStatus);
@@ -133,6 +157,8 @@
         private System.Windows.Forms.Button buttonPostStatus;
         private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.CheckBox checkBoxRememberUser;
+        private System.Windows.Forms.Button buttonAdvancedFriendSearch;
+        private System.Windows.Forms.Button buttonDisconnect;
     }
 }
 

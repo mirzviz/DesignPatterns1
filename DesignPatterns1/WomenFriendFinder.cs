@@ -5,7 +5,7 @@ using System.Text;
 using FacebookWrapper.ObjectModel;
 
 namespace DesignPatterns1
-{
+{   
     public class WomenFriendFinder
     {
         public User Me { get; set; }
